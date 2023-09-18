@@ -7,11 +7,12 @@ class TicketCart extends Component {
         let { cart } = this.props;
         console.log("this.props: ", this.props);
         return cart.map((item, index) => {
+            let {soGhe,gia} = item;
             return (
                 <tr key={index} className='w-100'>
-                    <td>{item.soGhe}</td>
-                    <td>{item.gia}</td>
-                    <td><button onClick={() =>{this.props.handleRemove(item.soGhe)}} className='btn btn-warning'>Cancle</button></td>
+                    <td>{soGhe}</td>
+                    <td>{gia}</td>
+                    <td><button onClick={() =>{this.props.handleRemove(soGhe)}} className='btn btn-warning'>Cancle</button></td>
                 </tr>
 
             );
@@ -36,9 +37,9 @@ class TicketCart extends Component {
                 <div className="ticketCart">
                     <h3>DANH SÁCH GHẾ BẠN CHỌN</h3>
                     <ul>
-                        <li><p className='gheDuocChon'></p>Ghế đã đặt</li>
-                        <li><p className='gheDangChon'></p>Ghế đang chọn</li>
-                        <li><p className='gheChuaChon'></p>Ghế chưa đặt</li>
+                        <li><p className='ghe gheDuocChon'></p>Ghế đã đặt</li>
+                        <li><p className='ghe gheDangChon'></p>Ghế đang chọn</li>
+                        <li><p className='ghe gheChuaChon'></p>Ghế chưa đặt</li>
                     </ul>
                     <table className='w-100'>
                         <thead>

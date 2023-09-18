@@ -92,31 +92,18 @@ li {
 .gheChuaChon {
   border: 3px solid orange;
   background-color: white;
-  width: 45px;
-  height: 35px;
-  font-size: 12px;
-  border-radius: 5px;
-  margin: auto 5px;
 }
 
 .gheDuocChon {
   border: 3px solid orange;
   background: orange;
-  color: #000;
-  cursor: no-drop !important;
-  border-radius: 5px;
-  width: 45px;
-  height: 35px;
-  margin: auto 5px;
 }
 
 .gheDangChon {
   background: rgb(109, 238, 109);
   border: 3px solid rgb(109, 238, 109);
-  color: #000;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 45px;
-  height: 35px;
-  margin: auto 5px;
+}
+p.ghe{
+  max-width: 50px;
+  margin-right: 10px;
 }
