@@ -40,6 +40,12 @@ li {
   margin: 10px;
 }
 
+.ticketCart th,
+.ticketCart td {
+  border: 1px solid orange;
+  padding: 5px;
+}
+
 .rowNumber {
   width: 45px;
   height: 35px;
@@ -67,7 +73,9 @@ li {
   font-size: 25px;
   color: #fff;
 }
-
+.col{
+  padding: 5px;
+}
 .ghe {
   border: 3px solid orange;
   background-color: white;
@@ -77,6 +85,8 @@ li {
   margin-left: 2%;
   margin-bottom: 1%;
   border-radius: 5px;
+  display: block;
+  width: 100%;
 }
 
 .gheChuaChon {

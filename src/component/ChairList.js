@@ -1,34 +1,37 @@
 import React, { Component } from 'react'
-import ChairItem from './ChairItem'
 import { connect } from 'react-redux'
+import ChairRow from './ChairRow'
 
 class ChairList extends Component {
     renderList() {
-        return this.props.map.ChairList((item, index) => {
-            return <ChairItem key={index} item={item} />
+        return this.props.chairArr.map((itemRow, index) => {
+            return <ChairRow key={index} itemRow={itemRow} />
         })
     }
     render() {
         return (
-            <div className="col-7">
+            <div className="col-7 pr-2">
                 <div className='chairList'>
                     <h1 className='text-warning'>ĐẶT VÉ XEM PHIM CYBERLEARN.VN</h1>
                     <h5>Màn hình</h5>
                     <p className='screen'></p>
-                    <table >
+                    <table className='w-100'>
                         <thead>
-                            <th className='text-warning'>1</th>
-                            <th className='text-warning'>2</th>
-                            <th className='text-warning'>3</th>
-                            <th className='text-warning'>4</th>
-                            <th className='text-warning'>5</th>
-                            <th className='text-warning'>6</th>
-                            <th className='text-warning'>7</th>
-                            <th className='text-warning'>8</th>
-                            <th className='text-warning'>9</th>
-                            <th className='text-warning'>10</th>
-                            <th className='text-warning'>11</th>
-                            <th className='text-warning'>12</th>
+                            <tr className='row'>
+                                <th className='text-warning col'> </th>
+                                <th className='text-warning col'>1</th>
+                                <th className='text-warning col'>2</th>
+                                <th className='text-warning col'>3</th>
+                                <th className='text-warning col'>4</th>
+                                <th className='text-warning col'>5</th>
+                                <th className='text-warning col'>6</th>
+                                <th className='text-warning col'>7</th>
+                                <th className='text-warning col'>8</th>
+                                <th className='text-warning col'>9</th>
+                                <th className='text-warning col'>10</th>
+                                <th className='text-warning col'>11</th>
+                                <th className='text-warning col'>12</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {this.renderList()}
@@ -41,7 +44,7 @@ class ChairList extends Component {
 }
 let mapStateToProps = (state) => {
     return {
-        shoeArr: state.shoeReducer.shoeArr,
+        chairArr: state.chairReducer.chairArr,
     };
 };
 export default connect(mapStateToProps)(ChairList);

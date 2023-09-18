@@ -7,7 +7,7 @@ export default class MainScreen extends Component {
         return (
             <div className='bg mainScreen'>
                 <div className='container'>
-                    <div className="row p-5">
+                    <div className="row">
                         <ChairList />
                         <TicketCart />
                     </div>
