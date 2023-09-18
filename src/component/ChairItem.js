@@ -6,10 +6,14 @@ class ChairItem extends Component {
     render() {
         return (
             <td className='col'>
-                <button className='ghe' onClick={() => { this.handleAddChair(this.props.item) }}>
+                <button className='ghe' onClick={() => { this.props.handleAddChair(this.props.item) }}>
                 </button>
             </td>
         )
+    }
+}
+let mapStateToProps = (state) => {
+    return {
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -23,4 +27,4 @@ let mapDispatchToProps = (dispatch) => {
         },
     }
 }
-export default connect(null,mapDispatchToProps)(ChairItem);
+export default connect(mapStateToProps,mapDispatchToProps)(ChairItem);

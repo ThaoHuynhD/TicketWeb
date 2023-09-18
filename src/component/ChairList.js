@@ -18,7 +18,7 @@ class ChairList extends Component {
                     <table className='w-100'>
                         <thead>
                             <tr className='row'>
-                                <th className='text-warning col'> </th>
+                                <th className='text-warning col'></th>
                                 <th className='text-warning col'>1</th>
                                 <th className='text-warning col'>2</th>
                                 <th className='text-warning col'>3</th>

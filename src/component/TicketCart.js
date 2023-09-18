@@ -4,17 +4,41 @@ import { chairArr } from './data';
 
 class TicketCart extends Component {
     renderSeatRow = (itemRow) => {
+        let { cart } = this.props;
+        console.log("this.props: ", this.props);
+        return cart.map((item, index) => {
+            return (
+                <tr key={item.soGhe} className='w-100'>
+                    <td>{item.soGhe}</td>
+                    <td>{item.gia}</td>
+                    <td><button className='btn btn-warning'>Cancle</button></td>
+                </tr>
+            );
+        });
+        // return (
+        //     <tbody key={itemRow.hang}>
+        //         {itemRow.danhSachGhe.map((item) => (
+        //             <tr key={item.soGhe} className='w-100'>
+        //                 <td>{item.soGhe}</td>
+        //                 <td>{item.gia}</td>
+        //                 <td><button className='btn btn-warning'>Cancle</button></td>
+        //             </tr>
+        //         ))}
+        //     </tbody>
+        // );
+    };
+    renderCart = () => {
+        let { cart } = this.props;
+        console.log("this.props: ", this.props);
+        // return cart.map((item, index) => {
         return (
-            <tbody key={itemRow.hang}>
-                {itemRow.danhSachGhe.map((item) => (
-                    <tr key={item.soGhe} className='w-100'>
-                        <td>{item.soGhe}</td>
-                        <td>{item.gia}</td>
-                        <td><button className='btn btn-warning'>Cancle</button></td>
-                    </tr>
-                ))}
-            </tbody>
+            <tr key={cart.item.soGhe} className='w-100'>
+                <td>{cart.item.soGhe}</td>
+                <td>{cart.item.gia}</td>
+                <td><button className='btn btn-warning'>Cancle</button></td>
+            </tr>
         );
+        // });
     };
     render() {
         return (
@@ -34,7 +58,13 @@ class TicketCart extends Component {
                                 <th>Hủy</th>
                             </tr>
                         </thead>
-                        {chairArr.map(this.renderSeatRow)}
+                        <tbody>
+                            {this.renderSeatRow()}
+                            <tr>
+                                <td>Tổng cộng</td>
+                                <td colSpan={2}>10000</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
