@@ -1,44 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { chairArr } from './data';
+import { REMOVE_CART } from '../constant/constant';
 
 class TicketCart extends Component {
-    renderSeatRow = (itemRow) => {
+    renderSeatRow = () => {
         let { cart } = this.props;
+        let sum = 0;
         console.log("this.props: ", this.props);
         return cart.map((item, index) => {
+            sum += item.gia * 1;
             return (
-                <tr key={item.soGhe} className='w-100'>
+                <tr key={index} className='w-100'>
                     <td>{item.soGhe}</td>
                     <td>{item.gia}</td>
                     <td><button className='btn btn-warning'>Cancle</button></td>
                 </tr>
+
             );
         });
-        // return (
-        //     <tbody key={itemRow.hang}>
-        //         {itemRow.danhSachGhe.map((item) => (
-        //             <tr key={item.soGhe} className='w-100'>
-        //                 <td>{item.soGhe}</td>
-        //                 <td>{item.gia}</td>
-        //                 <td><button className='btn btn-warning'>Cancle</button></td>
-        //             </tr>
-        //         ))}
-        //     </tbody>
-        // );
     };
-    renderCart = () => {
+    renderSum = () => {
         let { cart } = this.props;
-        console.log("this.props: ", this.props);
-        // return cart.map((item, index) => {
+        let sum = 0;
+        cart.map((item) => {
+            return sum += item.gia * 1;
+        });
         return (
-            <tr key={cart.item.soGhe} className='w-100'>
-                <td>{cart.item.soGhe}</td>
-                <td>{cart.item.gia}</td>
-                <td><button className='btn btn-warning'>Cancle</button></td>
+            <tr>
+                <td>Tổng cộng</td>
+                <td colSpan={2}>{sum}</td>
             </tr>
         );
-        // });
     };
     render() {
         return (
@@ -60,10 +52,7 @@ class TicketCart extends Component {
                         </thead>
                         <tbody>
                             {this.renderSeatRow()}
-                            <tr>
-                                <td>Tổng cộng</td>
-                                <td colSpan={2}>10000</td>
-                            </tr>
+                            {this.renderSum()}
                         </tbody>
                     </table>
                 </div>
@@ -74,5 +63,18 @@ class TicketCart extends Component {
 let mapStateToProps = (state) => {
     return { cart: state.chairReducer.cart };
 };
+let mapDispatchToProps = (dispatch) => {
+    return {
+        handleRemove: (soGhe) => {
+            let action = {
+                type: REMOVE_CART,
+                payload: {
+                    soGhe,
+                }
+            }
+            dispatch(action);
+        }
+    }
+}
 
-export default connect(mapStateToProps)(TicketCart);
+export default connect(mapStateToProps, mapDispatchToProps)(TicketCart);
