@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import { REMOVE_CART } from '../constant/constant';
 
 class TicketCart extends Component {
-    renderSeatRow = () => {
+    renderSeat = () => {
         let { cart } = this.props;
-        let sum = 0;
         console.log("this.props: ", this.props);
         return cart.map((item, index) => {
-            sum += item.gia * 1;
             return (
                 <tr key={index} className='w-100'>
                     <td>{item.soGhe}</td>
                     <td>{item.gia}</td>
-                    <td><button className='btn btn-warning'>Cancle</button></td>
+                    <td><button onClick={() =>{this.props.handleRemove(item.soGhe)}} className='btn btn-warning'>Cancle</button></td>
                 </tr>
 
             );
@@ -34,7 +32,7 @@ class TicketCart extends Component {
     };
     render() {
         return (
-            <div className='col-5 pl-5'>
+            <div className='col-5 my-auto pl-5'>
                 <div className="ticketCart">
                     <h3>DANH SÁCH GHẾ BẠN CHỌN</h3>
                     <ul>
@@ -51,7 +49,7 @@ class TicketCart extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.renderSeatRow()}
+                            {this.renderSeat()}
                             {this.renderSum()}
                         </tbody>
                     </table>

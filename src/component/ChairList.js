@@ -10,7 +10,7 @@ class ChairList extends Component {
     }
     render() {
         return (
-            <div className="col-7 pr-2">
+            <div className="col-7 my-auto pr-2">
                 <div className='chairList'>
                     <h1 className='text-warning'>ĐẶT VÉ XEM PHIM CYBERLEARN.VN</h1>
                     <h5>Màn hình</h5>
