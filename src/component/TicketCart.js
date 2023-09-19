@@ -3,18 +3,41 @@ import { connect } from 'react-redux';
 import { REMOVE_CART } from '../constant/constant';
 
 class TicketCart extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            buttonClicked: false,
+        };
+    }
+    // handleRemove = () => {
+    //     this.props.handleRemoveChair(this.props.cart.soGhe);
+    //     this.props.setState((prevState) => ({
+    //         buttonClicked: !prevState.buttonClicked,
+    //     }));
+    // }
+    handleRemove = () => {
+        this.props.handleRemoveChair(this.props.cart.soGhe);
+        this.setState((prevState) => ({
+            buttonClicked: !prevState.buttonClicked,
+        }));
+    }
     renderSeat = () => {
         let { cart } = this.props;
         console.log("this.props: ", this.props);
         return cart.map((item, index) => {
-            let {soGhe,gia} = item;
+            let { soGhe, gia } = item;
             return (
                 <tr key={index} className='w-100'>
                     <td>{soGhe}</td>
                     <td>{gia}</td>
-                    <td><button onClick={() =>{this.props.handleRemove(soGhe)}} className='btn btn-warning'>Cancle</button></td>
+                    <td>
+                        <button
+                            onClick={this.handleRemove}
+                            className='btn btn-warning'>
+                            Cancle
+                        </button>
+                    </td>
                 </tr>
-
             );
         });
     };
@@ -64,7 +87,7 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleRemove: (soGhe) => {
+        handleRemoveChair: (soGhe) => {
             let action = {
                 type: REMOVE_CART,
                 payload: {

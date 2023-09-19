@@ -3,7 +3,8 @@ import ChairItem from './ChairItem'
 export default class ChairRow extends Component {
     renderList() {
         return this.props.itemRow.danhSachGhe.map((item, index) => {
-            return <ChairItem key={index} item={item} />
+            return <ChairItem key={index} item={item}
+            />
         })
     }
     render() {

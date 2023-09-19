@@ -8,7 +8,7 @@ export default class MainScreen extends Component {
             <div className='bg mainScreen'>
                 <div className='container'>
                     <div className="row">
-                        <ChairList />
+                        <ChairList/>
                         <TicketCart />
                     </div>
                 </div>

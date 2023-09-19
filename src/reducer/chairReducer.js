@@ -20,15 +20,15 @@ export let chairReducer = (state = initialState, { type, payload }) => {
             }
             return { ...state, cart: cloneCart };
         }
-        case REMOVE_CART: {
-            let cloneCart = [...state.cart];
-            console.log("REMOVE_CART");
-            let index = cloneCart.findIndex((item) => {
-                return item.soGhe === payload.soGhe;
-            });
-            cloneCart.splice(index, 1);
-            return { ...state, cart: cloneCart };
-        }
+            case REMOVE_CART: {
+                let cloneCart = [...state.cart];
+                console.log("REMOVE_CART");
+                let index = cloneCart.findIndex((item) => {
+                    return item.soGhe === payload.soGhe;
+                });
+                cloneCart.splice(index, 1);
+                return { ...state, cart: cloneCart };
+            }
         default:
             return state;
     }
