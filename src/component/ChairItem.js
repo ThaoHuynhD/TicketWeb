@@ -9,7 +9,7 @@ class ChairItem extends Component {
             buttonClicked: false,
         };
     }
-    
+
     handleButtonClick = () => {
         this.props.handleAddChair(this.props.item);
         this.setState((prevState) => ({
@@ -20,12 +20,12 @@ class ChairItem extends Component {
         }
     };
     render() {
-        const { buttonClicked } = this.props;
+        let buttonClassName;
         if (this.props.item.daDat === true) {
-            var buttonClassName = 'ghe gheDuocChon';
+            buttonClassName = 'ghe gheDuocChon';
         }
         else {
-            var buttonClassName = this.state.buttonClicked ? 'ghe gheDangChon' : 'ghe';
+            buttonClassName = this.state.buttonClicked ? 'ghe gheDangChon' : 'ghe';
         }
         return (
             <td className='col'>

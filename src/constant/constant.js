@@ -4,3 +4,5 @@ export const DEFAULT_CHAIR = 'DEFAULT_CHAIR';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const VIEW_DETAIL = 'VIEW_DETAIL';
 export const REMOVE_CART = 'REMOVE_CART';
+export const TOGGLE_BUTTON_CLICKED = 'TOGGLE_BUTTON_CLICKED';
+export const CHANGE_ITEM = 'CHANGE_ITEM';

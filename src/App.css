@@ -2,6 +2,7 @@ body {
   color: white;
   font-family: 'Paytone One', sans-serif;
   text-align: center;
+  overflow: auto;
 }
 
 .bg {
@@ -76,6 +77,7 @@ li {
 .col{
   padding: 5px;
 }
+
 .ghe {
   border: 3px solid orange;
   background-color: white;

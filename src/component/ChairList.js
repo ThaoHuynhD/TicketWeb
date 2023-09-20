@@ -48,4 +48,3 @@ let mapStateToProps = (state) => {
     };
 };
 export default connect(mapStateToProps)(ChairList);
-
