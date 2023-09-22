@@ -1,31 +1,26 @@
 import React, { Component } from 'react'
-import { ADD_TO_CART, REMOVE_CART } from '../constant/constant';
+import { SELECT_SEAT, DESELECT_SEAT } from '../constant/constant';
 import { connect } from 'react-redux';
 
-class ChairItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            buttonClicked: false,
-        };
-    }
-
+class SeatItem extends Component {
     handleButtonClick = () => {
-        this.props.handleAddChair(this.props.item);
-        this.setState((prevState) => ({
-            buttonClicked: !prevState.buttonClicked,
-        }));
-        if (this.state.buttonClicked) {
-            this.props.handleRemoveChair(this.props.item.soGhe);
+        this.props.handleAddSeat(this.props.item);
+        console.log("this.props.isCheckedhandleButtonClick: ", this.props.isChecked);
+        if (this.props.isChecked) { 
+            this.props.handleRemoveSeat(this.props.item);
         }
     };
     render() {
-        let buttonClassName;
+        // console.log('RENDER SEAT ITEM--------');
+        // console.log("this.propsfdsf: ", this.props);
+        console.log("this.props.isChecked: ", this.props.isChecked);
+
+        let buttonClassName = "ghe gheDuocChon";
         if (this.props.item.daDat === true) {
             buttonClassName = 'ghe gheDuocChon';
         }
         else {
-            buttonClassName = this.state.buttonClicked ? 'ghe gheDangChon' : 'ghe';
+            buttonClassName = this.props.isChecked ? 'ghe gheDangChon' : 'ghe';
         }
         return (
             <td className='col'>
@@ -44,22 +39,22 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleAddChair: (item) => {
+        handleAddSeat: (item) => {
             let action = {
-                type: ADD_TO_CART,
+                type: SELECT_SEAT,
                 payload: item,
             };
             dispatch(action);
         },
-        handleRemoveChair: (soGhe) => {
+        handleRemoveSeat: (item) => {
             let action = {
-                type: REMOVE_CART,
+                type: DESELECT_SEAT,
                 payload: {
-                    soGhe,
+                    item,
                 }
             }
             dispatch(action);
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ChairItem);
+export default connect(mapStateToProps, mapDispatchToProps)(SeatItem);

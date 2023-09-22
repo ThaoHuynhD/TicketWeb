@@ -1,25 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { REMOVE_CART } from '../constant/constant';
+import { DESELECT_SEAT } from '../constant/constant';
 
 class TicketCart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            buttonClicked: false,
-        };
-    }
-    // handleRemove = () => {
-    //     this.props.handleRemoveChair(this.props.cart.soGhe);
-    //     this.props.setState((prevState) => ({
-    //         buttonClicked: !prevState.buttonClicked,
-    //     }));
-    // }
+
     handleRemove = () => {
-        this.props.handleRemoveChair(this.props.cart.soGhe);
-        this.setState((prevState) => ({
-            buttonClicked: !prevState.buttonClicked,
-        }));
+        this.props.handleRemoveSeat(this.props.cart);
     }
     renderSeat = () => {
         let { cart } = this.props;
@@ -55,6 +41,7 @@ class TicketCart extends Component {
         );
     };
     render() {
+        console.log('RENDER TICKET CART');
         return (
             <div className='col-5 my-auto pl-5'>
                 <div className="ticketCart">
@@ -83,15 +70,15 @@ class TicketCart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { cart: state.chairReducer.cart };
+    return { cart: state.seatReducer.cart };
 };
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleRemoveChair: (soGhe) => {
+        handleRemoveSeat: (item) => {
             let action = {
-                type: REMOVE_CART,
+                type: DESELECT_SEAT,
                 payload: {
-                    soGhe,
+                    item,
                 }
             }
             dispatch(action);

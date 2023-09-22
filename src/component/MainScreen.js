@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ChairList from './ChairList'
+import SeatList from './SeatList'
 import TicketCart from './TicketCart'
 
 export default class MainScreen extends Component {
@@ -8,8 +8,10 @@ export default class MainScreen extends Component {
             <div className='bg mainScreen'>
                 <div className='container'>
                     <div className="row">
-                        <ChairList/>
-                        <TicketCart />
+                        <SeatList />
+                        <TicketCart
+                            // isChecked={this.props.cart.some(cartItem => cartItem.soGhe === item.soGhe)}
+                        />
                     </div>
                 </div>
             </div>

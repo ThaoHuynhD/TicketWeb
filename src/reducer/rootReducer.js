@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { chairReducer } from "./chairReducer";
+import { seatReducer } from "./seatReducer";
 
-export let rootReducer = combineReducers({ chairReducer: chairReducer });
+export let rootReducer = combineReducers({ seatReducer: seatReducer });

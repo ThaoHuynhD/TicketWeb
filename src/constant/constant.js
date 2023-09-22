@@ -1,8 +1,4 @@
-export const DESERVE_CHAIR = "DESERVE_CHAIR";
-export const SELECT_CHAIR = 'SELECT_CHAIR';
-export const DEFAULT_CHAIR = 'DEFAULT_CHAIR';
-export const ADD_TO_CART = 'ADD_TO_CART';
-export const VIEW_DETAIL = 'VIEW_DETAIL';
-export const REMOVE_CART = 'REMOVE_CART';
-export const TOGGLE_BUTTON_CLICKED = 'TOGGLE_BUTTON_CLICKED';
-export const CHANGE_ITEM = 'CHANGE_ITEM';
+export const SELECT_SEAT = 'SELECT_SEAT';
+export const DESELECT_SEAT = 'DESELECT_SEAT';
+export const SET_SEAT_CHOSEN = 'SET_SEAT_CHOSEN';
+export const SET_SEAT_CANCEL = 'SET_SEAT_CANCEL';
