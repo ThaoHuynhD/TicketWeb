@@ -1,4 +1,4 @@
-import { SELECT_SEAT, DESELECT_SEAT } from "../constant/constant";
+import { SELECT_SEAT, DESELECT_SEAT, PAYMENT_COMPLETE } from "../constant/constant";
 
 const initialState = {
     cart: [],
@@ -26,6 +26,9 @@ export let seatReducer = (state = initialState, { type, payload }) => {
             cloneCart.splice(index, 1);
             return { ...state, cart: cloneCart };
         }
+        case PAYMENT_COMPLETE: {
+            return { ...state, cart: [] };
+          }
         default:
             return state;
     }

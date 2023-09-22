@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { DESELECT_SEAT } from '../constant/constant';
+import { DESELECT_SEAT, PAYMENT_COMPLETE } from '../constant/constant';
+import { Modal } from 'antd';
 
 class TicketCart extends Component {
-
+    handlePaymentDone =()=>{
+        if (this.props.cart.length === 0 ){
+            Modal.warning({
+                title: "Thanh toán thất bại",
+                content: "Vui lòng chọn ghế",
+              });
+              return;
+        }
+        this.props.handlePaymentComplete(this.props.cart);
+        Modal.success({
+            title: "Thanh toán thành công",
+            content: "Vui lòng đến trước 30 phút khi phim bắt đầu",
+          });
+    }
     handleRemove = () => {
         this.props.handleRemoveSeat(this.props.cart);
     }
@@ -64,6 +78,7 @@ class TicketCart extends Component {
                             {this.renderSum()}
                         </tbody>
                     </table>
+                    <button onClick={this.handlePaymentDone} className='btn btn-success m-5 '>Thanh Toán</button>
                 </div>
             </div>
         )
@@ -77,6 +92,15 @@ let mapDispatchToProps = (dispatch) => {
         handleRemoveSeat: (item) => {
             let action = {
                 type: DESELECT_SEAT,
+                payload: {
+                    item,
+                }
+            }
+            dispatch(action);
+        },
+        handlePaymentComplete: (item) => {
+            let action = {
+                type: PAYMENT_COMPLETE,
                 payload: {
                     item,
                 }
